@@ -1,3 +1,14 @@
+/*
+============================================
+; Title:  app-module.ts
+; Author: Professor Krasso
+; Date:   8 March 2021
+; Modified by: Karina Alvarez
+; Description: app module file
+;===========================================
+*/
+
+//These are files being imported from external files
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
