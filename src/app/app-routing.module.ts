@@ -17,7 +17,6 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/auth.guard';
 
-
 // These are the paths added to the routes array
 // Each of these path will take you to the designated component
 const routes: Routes = [
