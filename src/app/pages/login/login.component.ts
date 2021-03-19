@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private cookieService: CookieService,
               private http: HttpClient, private snackBar: MatSnackBar ) { }
 
+  //creating a new Angular form
+   //Angular built-in required Validator only accepting numeric values. Field is required.
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       empId: [null, Validators.compose([Validators.required, Validators.pattern('^[0-9]*$')])]

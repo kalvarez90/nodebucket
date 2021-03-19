@@ -25,6 +25,8 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const sessionUser = this.cookieService.get('session_user');
 
+    //if user has access it will be able to log in
+    //if user does not have access it will be redirected log-in page
     if (sessionUser)
     {
       return true;

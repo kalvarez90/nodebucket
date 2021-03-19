@@ -3,13 +3,14 @@
   <mat-card fxFlex class="mat-elevation-z8 login-container">
 
     <!-- Card Title and subtitle on top of sign-in form -->
-    <mat-card-title class="login-title mat-headline">Employee Login Form</mat-card-title>
+    <mat-card-title class="login-title mat-headline">Employee Login</mat-card-title>
     <br>
     <mat-card-subtitle class="login-subtitle mat-headline">You must enter a valid numerical employeeId to proceed</mat-card-subtitle>
 
     <mat-card-content>
 
-      <mat-card class="mat-elevation-z8" fxLayout='column' fxLayoutGap='10px'>
+      <mat-card class="mat-elevation-z0" fxLayout='column' fxLayoutGap='10px'>
+        <form [formGroup]='loginForm' (ngSubmit)='login(); loginForm.reset()'>
         <mat-card-content>
 
           <mat-form-field fxFlex>
