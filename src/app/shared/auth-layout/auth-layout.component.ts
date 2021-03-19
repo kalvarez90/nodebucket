@@ -2,7 +2,7 @@
 ============================================
 ; Title:  auth-layout.component.ts
 ; Author: Professor Krasso
-; Date:   8 March 2021
+; Date:   18 March 2021
 ; Modified by: Karina Alvarez
 ; Description: auth layout file
 ;===========================================

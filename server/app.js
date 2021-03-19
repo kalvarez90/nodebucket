@@ -1,19 +1,30 @@
+/*
+============================================
+; Title:  app.js
+; Author: Professor Krasso
+; Date:   15 March 2021
+; Modified by: Karina Alvarez
+; Description: app file
+;===========================================
+*/
+
 /**
  * Require statements
  */
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');                        
 const path = require('path');
 const mongoose = require('mongoose');
+
+const EmployeeAPI = require('./routes/employee-routes')
 
 /**
  * App configurations
  */
 let app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({'extended': true}));
+app.use(express.json());
+app.use(express.urlencoded({'extended': true}));
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../dist/nodebucket')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
@@ -21,10 +32,10 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 /**
  * Variables
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
-// TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebucket?retryWrites=true&w=majority';
+//mongo db connection with username and password to access database
+const conn = 'mongodb+srv://nodebucket_user:admin@buwebdev-cluster-1.z53kv.mongodb.net/nodebucket?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -32,7 +43,8 @@ const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebuc
 mongoose.connect(conn, {
   promiseLibrary: require('bluebird'),
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  userCreateIndex: true
 }).then(() => {
   console.debug(`Connection to the database instance was successful`);
 }).catch(err => {
@@ -40,8 +52,9 @@ mongoose.connect(conn, {
 }); // end mongoose connection
 
 /**
- * API(s) go here...
+ * ARoute import/resources
  */
+app.use('/api/employees', EmployeeAPI);
 
 /**
  * Create and start server
