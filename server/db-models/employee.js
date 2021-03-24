@@ -10,10 +10,16 @@
 
 //importing mongoose to interact with the database
 const mongoose = require('mongoose');
+const Item = require('./item');
 
 //employee schema that creates the structure of the document
 let employeeSchema = mongoose.Schema({
-  empId: { type: String, unique: true }
+  empId: { type: String, unique: true },
+
+  //todo and done are the field with an array of item
+  //nested item collection
+  todo: [Item],
+  done: [Item]
 }, { collection: "employees"})
 
 //map schema to model and export it

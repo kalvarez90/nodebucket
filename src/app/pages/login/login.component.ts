@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   //this is the login function needed to help the employee login with a valid ID
-  // If an invalid ID is entered, the else..if will handle this by showing a warning message
+  // If an invalid ID is entered, the else..if will handle this by showing a warning or error message
+  // this will depend if a string or numeric ID is entered.
   login() {
     const empId = this.loginForm.controls['empId'].value;
     console.log(empId);
