@@ -259,7 +259,7 @@ router.put('/:empId/tasks', async(req, res) => {
         console.log(employee);
 
         //variable to hold the result of the find query against the todo array
-        //it will find if the ID if in that array (todo or done)
+        //it will find if the ID is in that array (todo or done)
 
         const todoItem = employee.todo.find(item => item._id.toString() === req.params.taskId);
 
@@ -309,7 +309,7 @@ router.put('/:empId/tasks', async(req, res) => {
             {
               console.log(updatedDoneItemEmployee);
               const deleteDoneItemSuccess = new BaseResponse('200', 'Query successful', updatedDoneItemEmployee);
-              res.status(200).send(updatedDoneItemEmployee.toObject());
+              res.status(200).send(deleteDoneItemSuccess.toObject());
             }
           })
         }
