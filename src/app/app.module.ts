@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,6 +31,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +42,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    CreateTaskDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    DragDropModule,
+    MatMenuModule
 
   ],
   providers: [],

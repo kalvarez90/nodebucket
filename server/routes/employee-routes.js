@@ -91,16 +91,19 @@ router.post('/:empId/tasks', async(req, res) => {
 
         employee.todo.push(item);
 
-        employee.save(function(err, updateEmployee) {
+        employee.save(function(err, updatedEmployee) {
           if (err)
           {
             console.log(err);
 
-            const createTaskCatchException= new BaseResponse('500', `MongoDB onsave() exception: ${err.message}`, null);
+            const createTaskOnSaveMongoDbError= new BaseResponse('500', `MongoDB onSave() exception: ${err.message}`, null);
             res.status(500).send(createTaskOnSaveMongoDbError.toObject());
-          } else {
-            console.log(updateEmployee);
-            const createTaskOnSaveSuccessResponse = new BaseResponse('200', 'Successful query', updateEmployee);
+          }
+
+          //This will be posted when a successful query is created based on valid employee ID
+          else {
+            console.log(updatedEmployee);
+            const createTaskOnSaveSuccessResponse = new BaseResponse('200', 'Successful query', updatedEmployee);
             res.status(200).send(createTaskOnSaveSuccessResponse.toObject());
           }
         })
@@ -133,7 +136,7 @@ router.post('/:empId/tasks', async(req, res) => {
 router.get('/:empId/tasks', async(req, res) => {
   try
   {
-    //51 minutes get comments
+    //This will find the employee
     Employee.findOne({'empId': req.params.empId}, 'empId todo done', function(err, employee) {
 
       if(err)
@@ -144,7 +147,7 @@ router.get('/:empId/tasks', async(req, res) => {
         res.status(500).send(mongoDBFindAllTasksException.toObject());
       }
 
-      //if errors does not occur
+      //if errors does not occur a successful message will be displayed
       else {
         console.log(employee)
 

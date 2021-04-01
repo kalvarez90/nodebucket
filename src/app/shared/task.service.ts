@@ -39,7 +39,7 @@ export class TaskService {
    * @returns and observable of type any
    */
   createTask(empId: string, task: string): Observable<any> {
-    return this.http.post(`/api/employee/${empId}/tasks`, {
+    return this.http.post(`/api/employees/${empId}/tasks`, {
       text: task
     })
   }
@@ -52,7 +52,7 @@ export class TaskService {
    * @returns an observable of type any
    */
   updateTask(empId: string, todo: item[], done: item[]): Observable<any> {
-    return this.http.put(`/api/employee/${empId}/tasks`, {
+    return this.http.put(`/api/employees/${empId}/tasks`, {
       todo,
       done
     })
@@ -65,6 +65,6 @@ export class TaskService {
    * @returns An observable of type any
    */
   deleteTask(empId: string, taskId: string): Observable<any> {
-    return this.http.delete(`/api/employee/${empId}/tasks/${taskId}`)
+    return this.http.delete(`/api/employees/${empId}/tasks/${taskId}`)
   }
 }
