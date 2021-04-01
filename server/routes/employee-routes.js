@@ -73,10 +73,10 @@ router.post('/:empId/tasks', async(req, res) => {
     Employee.findOne({'empId': req.params.empId}, function(err, employee) {
       if(err)
       {
-        // if an error occurs, console.log will help log this error
+        // if an error occurs, console.log will help log this error as well as make it easier to identify
         console.log(err);
 
-        const createTaskMongoDbError = new BaseResponse('500', `MongoDB Exception: ${e.message}`, null)
+        const createTaskMongoDbError = new BaseResponse('500', `MongoDB Exception: ${err.message}`, null)
         res.status(500).send(createTaskMongoDbError.toObject());
       } else {
 
