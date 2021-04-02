@@ -2,17 +2,15 @@
   Home Page CSS styling of title and subtitle
 */
 .main-welcome {
-  margin-top: 30px;
+  padding-top: 30px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .title {
   text-align: center;
   font-weight: lighter;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 14px;
+  font-size: 50px;
 }
 
 /*
@@ -43,7 +41,7 @@
   Task container styling
 */
 .task-container {
-  width: 35%;
+  width: 50%;
   margin: 0 auto;
 }
 
@@ -65,4 +63,14 @@
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    font-size: 30px;
+  }
+  .task-container {
+    width: 100%;
+    margin: 0 auto;
+  }
 }

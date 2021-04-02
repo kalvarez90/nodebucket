@@ -16,6 +16,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/auth.guard';
+import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 // These are the paths added to the routes array
 // Each of these path will take you to the designated component
@@ -28,6 +30,10 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: "about",
+        component: AboutComponent
       }
     ]
   },
@@ -36,10 +42,18 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [
       {
+        path: 'not-found',
+        component: NotFoundComponent
+      },
+      {
         path: 'login',
         component: LoginComponent
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'session/not-found'
   }
 ];
 

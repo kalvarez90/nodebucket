@@ -28,7 +28,7 @@ export class BaseLayoutComponent implements OnInit {
   }
 
   //Once user logs into the system, the signOut() function will allow them to sign out of the site
-  // user will be redirected to the sign-in page
+  //user will be redirected to the sign-in page
   signOut() {
     this.cookieService.deleteAll();
     this.router.navigate(['/session/login']);

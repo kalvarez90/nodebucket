@@ -1,4 +1,7 @@
 /* CSS styling for the base layout file */
+body {
+  overflow: hidden;
+}
 .logo {
     margin-left: 75px;
     font-size: 24px;
@@ -20,8 +23,8 @@
 
   .footer {
     bottom: 0;
-    position: absolute;
     width: 100%;
+    position: fixed;
   }
 
   .footer-content {
@@ -37,4 +40,29 @@
 
   .bu-link:hover {
     text-decoration: underline;
+  }
+
+  /*
+    Making navbar responsive in smaller screens
+  */
+  @media only screen and (max-width: 700px) {
+    .logo {
+      margin-left: 5px;
+      font-size: 15px;
+      font-weight: lighter;;
+    }
+    .navbar-link {
+      font-size: 12px;
+      font-weight: lighter;
+    }
+    .footer-content {
+      font-size: 12px;
+      font-weight: lighter;
+      padding-left: 15px;
+      letter-spacing: 3px;
+      padding-top: 15px;
+    }
+    .main-content {
+      padding-left: 0px;
+    }
   }
